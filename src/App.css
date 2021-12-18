@@ -1,38 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(235, 21%, 11%);
+  background-image: url("./images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  font-size: 18px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin-top: 50px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: white;
+  font-size: 50px;
+  letter-spacing: 10px;
+  font-weight: bold;
+}
+
+.new-todo {
+  background-color: hsl(235, 24%, 19%);
+  height: 70px;
+  display: flex;
+  border-radius: 6px;
+}
+
+.check {
+  width: 70px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.check-mark {
+  width: 30px;
+  height: 30px;
+  border: 2px solid hsl(237, 14%, 26%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.check-mark:hover {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+
+.new-todo-input {
+  /* grow element as much as possible */
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-todo-input form {
+  flex-grow: 1;
+}
+
+.new-todo input {
+  width: 100%;
+  padding: 10px 0px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: hsl(234, 39%, 85%);
+}
+
+.todo-items-wrapper {
+  margin-top: 30px;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.todo-item {
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid hsl(237, 14%, 26%);
+  display: flex;
+  transition: all 0.25s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0px 7px 0px hsl(235, 21%, 11%);
+}
+
+.todo-text {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: hsl(234, 39%, 85%);
+}
+
+.todo-items-info {
+  height: 70px;
+  width: 100%;
+  color: hsl(223, 14%, 35%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.items-statuses {
+  display: flex;
+  justify-content: center;
+}
+
+.items-statuses span {
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.items-statuses span:hover {
+  color: hsl(220, 98%, 61%);
 }
