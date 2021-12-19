@@ -14,7 +14,7 @@ const data = [
 
 function App() {
   const [tasks, setTasks] = useState(data);
-  console.log(tasks);
+
   return (
     <div className="App">
       <div className="container">

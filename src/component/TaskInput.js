@@ -5,6 +5,14 @@ import "../App.css";
 function TaskInput({ tasks, setTasks }) {
   const [input, setInput] = useState("");
 
+  //create an incrementing ID for your new todo list
+  const createId = (array) => {
+    //Getting all the ids from the todo objects
+    const ids = array.map((item) => item.id);
+    //returning the current highest id number in the array and add 1.
+    //that number will be assigned to the newest key in the new todo task item
+    return Math.max(...ids) + 1;
+  };
   //When I type, I need to save the input I typed into the field
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -20,13 +28,13 @@ function TaskInput({ tasks, setTasks }) {
 
     if (input) {
       const newTask = {
-        id: 7,
+        id: createId(tasks),
         //Remove the whitesapce BEFORE and AFTER the string
         text: input.trim(),
         status: false,
       };
-      //ADD a new task to the state
-      setTasks([...tasks, newTask]);
+      //ADD a new task to the state. Put newTask first to put the new item on top of the array
+      setTasks([newTask, ...tasks]);
 
       //Reset input state so after entering todo it goes back!
       setInput("");

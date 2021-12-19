@@ -1,11 +1,13 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList() {
+function TaskList({ tasks }) {
   return (
     <div className="todo-items-wrapper">
       <div className="todo-items">
-        <Task />
+        {tasks.map((task, key) => {
+          return <Task task={task} key={task.id} />;
+        })}
       </div>
 
       <div className="todo-items-info">
