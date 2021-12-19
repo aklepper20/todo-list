@@ -1,15 +1,11 @@
 import React from "react";
+import Task from "./Task";
 
 function TaskList() {
   return (
     <div className="todo-items-wrapper">
       <div className="todo-items">
-        <div className="todo-item">
-          <div className="check">
-            <div className="check-mark"></div>
-          </div>
-          <div className="todo-text">what up</div>
-        </div>
+        <Task />
       </div>
 
       <div className="todo-items-info">
