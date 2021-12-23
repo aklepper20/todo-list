@@ -2,6 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import TaskInput from "./component/TaskInput";
 import TaskList from "./component/TaskList";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const data = [
   { id: 1, text: "Finish contacts hw", status: false },
@@ -17,6 +19,7 @@ function App() {
   const [filterStatus, setFilterStatus] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState(tasks);
   let [sumOfTruths, setSumOfTruths] = useState(tasks.length);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     const handleFilter = () => {
@@ -41,17 +44,29 @@ function App() {
     }
   }, [tasks]);
 
+  // const checked = mutableTask.status ? "checked" : "";
+  // const checkIcon = mutableTask.status ? <img src={Check} alt="Checked" /> : "";
+  const swapTheme = () => {
+    const isDark = !dark;
+    setDark(isDark);
+  };
+
+  const darkThemeApp = dark ? "darkThemeAppBg" : "";
+
   return (
-    <div className="App">
+    <div className={`App ${darkThemeApp}`}>
       <div className="container">
         <div className="header">
           <div className="title">TODO</div>
           <div className="theme">
-            <img src="./images/icon-sun.svg" alt="theme" />
+            <div onClick={swapTheme}>
+              {dark ? <DarkModeIcon /> : <WbSunnyIcon />}
+            </div>
           </div>
         </div>
-        <TaskInput tasks={tasks} setTasks={setTasks} />
+        <TaskInput tasks={tasks} setTasks={setTasks} dark={dark} />
         <TaskList
+          dark={dark}
           sumOfTruths={sumOfTruths}
           tasks={tasks}
           setTasks={setTasks}

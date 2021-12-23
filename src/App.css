@@ -158,3 +158,12 @@
 .check-mark:hover img {
   visibility: visible;
 }
+
+.darkTheme {
+  background-color: #f8f8f8;
+  color: black !important;
+}
+
+.darkThemeAppBg {
+  background-color: #c058f3;
+}

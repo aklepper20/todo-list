@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 
 //Save what I wrote in rhe input field into a state
-function TaskInput({ tasks, setTasks }) {
+function TaskInput({ tasks, setTasks, dark }) {
   const [input, setInput] = useState("");
 
   //create an incrementing ID for your new todo list
@@ -41,14 +41,17 @@ function TaskInput({ tasks, setTasks }) {
     }
   };
 
+  const darkThemeBg = dark ? "darkTheme" : "";
+
   return (
     <div className="new-todo">
-      <div className="check">
+      <div className={`check ${darkThemeBg}`}>
         <div className="check-mark"></div>
       </div>
-      <div className="new-todo-input">
+      <div className={`new-todo-input ${darkThemeBg}`}>
         <form onSubmit={handleForm}>
           <input
+            className={`${darkThemeBg}`}
             value={input}
             onChange={handleChange}
             type="text"

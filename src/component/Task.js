@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Check from "../images/icon-check.svg";
 import TaskList from "./TaskList";
 
-function Task({ task, tasks, setTasks }) {
+function Task({ task, tasks, setTasks, dark }) {
   const [mutableTask, setMutableTask] = useState(task);
 
   //create a unction that when clicked the task status will be true on the frontend and backend(data)
@@ -24,13 +24,14 @@ function Task({ task, tasks, setTasks }) {
 
   const checked = mutableTask.status ? "checked" : "";
   const checkIcon = mutableTask.status ? <img src={Check} alt="Checked" /> : "";
+  const darkThemeBg = dark ? "darkTheme" : "";
 
   return (
     <div className="todo-item">
       <div className="check" onClick={markCompleted}>
         <div className={`check-mark ${checked}`}>{checkIcon}</div>
       </div>
-      <div className={`todo-text ${checked}`}>{task.text}</div>
+      <div className={`todo-text ${darkThemeBg} ${checked}`}>{task.text}</div>
     </div>
   );
 }

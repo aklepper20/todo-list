@@ -10,6 +10,7 @@ function TaskList({
   filteredTasks,
   setFilteredTasks,
   sumOfTruths,
+  dark,
 }) {
   const clearCompleted = () => {
     // setFilteredTasks(tasks.filter((task) => task.status === false));
@@ -27,17 +28,28 @@ function TaskList({
     }
   };
 
+  // const checked = mutableTask.status ? "checked" : "";
+  // const checkIcon = mutableTask.status ? <img src={Check} alt="Checked" /> : "";
+  const darkThemeBg = dark ? "darkTheme" : "";
+
+  //{`check-mark ${checked}`}
   return (
-    <div className="todo-items-wrapper">
+    <div className={`todo-items-wrapper ${darkThemeBg}`}>
       <div className="todo-items">
         {filteredTasks.map((task, key) => {
           return (
-            <Task task={task} key={task.id} tasks={tasks} setTasks={setTasks} />
+            <Task
+              task={task}
+              key={task.id}
+              tasks={tasks}
+              setTasks={setTasks}
+              dark={dark}
+            />
           );
         })}
       </div>
 
-      <div className="todo-items-info">
+      <div className={`todo-items-info ${darkThemeBg}`}>
         <div className="items-left">{sumOfTruths} items left</div>
         <FilterControl
           filterStatus={filterStatus}
